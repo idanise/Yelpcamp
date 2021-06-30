@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+    <html> 
+        <head>
+            <title>Yelpcamp</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        </head>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">YelpCamp</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                    <% if(!currentUser){ %>
+                            <li><a href="/login">Login</a></li>
+                        <li><a href="/register">SignUp</a></li>
+                    <% } else { %>
+                        <li> <a href="">Signed In As <%= currentUser.username %></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <% if(error && error.length > 0){%>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <% } %>
+        </div>
+        <div class="container">
+            <% if(success && success.length > 0){%>
+                <div class="alert alert-success" role="alert">
+                    <%= success %>
+                </div>
+            <% } %>
+        </div>
+       
+
+        <body>
+           <div class="container">
+            <header class="jumbotron">
+                <div class="container">
+                    <h1>This is the campground page</h1>
+                    <p>View our hand-picked campgrounds from all over the world</p>
+                    <p>
+                        <a class="btn btn-lg btn-primary "href="/campgrounds/new">Add new campgrounds</a>
+                    </p>
+                </div>
+            </header> 
+
+
+            <div class="row text-center" style="display:flex; flex-wrap: wrap">
+                <% campgrounds.forEach(function(campground) { %>
+                    <div class="col-md-3 col-sm-6"> 
+                        <div class="thumbnail">
+                            <img src="<%= campground.image %>"> 
+                            <div class="caption">
+                                <h4> <%= campground.name %> </h4>
+                            </div>
+                            <p>
+                                <a href="/campgrounds/ <%= campground._id %>" class="btn btn-primary">More info</a>
+                            </p>
+                        </div>
+                    </div> 
+                    <% });  %>
+            </div>
+ 
+           </div>
+        </body>
+
+
+<p>TradeMark Yelpcamp 2021</p>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</html>

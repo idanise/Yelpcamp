@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+    <html> 
+        <head>
+            <title>Yelpcamp</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>
+        </head>
+        
+        <style>
+            body {
+                background: #000;
+            }
+
+            #landing-header {
+                z-index: 1;
+                position: relative;
+                text-align: center;
+                padding-top: 40vh;
+            }
+            #landing-header h1 {
+                color: #fff;
+            }
+
+            .slideshow { 
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .slideshow li { 
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-size: cover;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                opacity: 0;
+                z-index: 0;
+                animation: imageAnimation 50s linear infinite; 
+            }
+
+            .slideshow li:nth-child(1) { 
+                background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+            }
+                .slideshow li:nth-child(2) { 
+                background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+                animation-delay: 10s; 
+            }
+                .slideshow li:nth-child(3) { 
+                background-image: url(http://i.imgur.com/emvhOnb.jpg);
+                animation-delay: 20s; 
+            }
+                .slideshow li:nth-child(4) { 
+                background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+                animation-delay: 30s; 
+            }
+                .slideshow li:nth-child(5) { 
+                background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+                animation-delay: 40s; 
+            }
+            @keyframes imageAnimation { 
+                0% { 
+                    opacity: 0; 
+                    animation-timing-function: ease-in;
+                }
+                10% {
+                    opacity: 1;
+                    animation-timing-function: ease-out;
+                }
+                20% {
+                    opacity: 1
+                }
+                30% {
+                    opacity: 0
+                }
+            }
+            /* Older browser support - .no-cssanimations class added by modernizr */
+            .no-cssanimations .slideshow li {
+                opacity: 1;
+            }
+        </style>
+
+        <!-- <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">YelpCamp</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if(!currentUser){ %>
+                                <li><a href="/login">Login</a></li>
+                            <li><a href="/register">SignUp</a></li>
+                        <% } else { %>
+                            <li> <a href="">Signed In As <%= currentUser.username %></a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <% if(error && error.length > 0){%>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <% } %>
+        </div>
+        <div class="container">
+            <% if(success && success.length > 0){%>
+                <div class="alert alert-success" role="alert">
+                    <%= success %>
+                </div>
+            <% } %>
+        </div> -->
+       
+<div id="landing-header">
+    <h1>Welcome to YelpCamp!</h1>
+</div>
+<div class="container">
+    <a class="btn btn-sm btn-pry" href="/campgrounds">View All Campgrounds</a>
+</div>
+
+<ul class="slideshow">
+ <li></li>
+ <li></li>
+ <li></li>
+ <li></li>
+ <li></li>
+</ul>
+ 
+</body>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</html>
